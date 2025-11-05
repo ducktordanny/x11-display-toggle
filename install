@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+mkdir -p ~/bin
+cp ./display-toggle ~/bin/display-toggle
+chmod +x ~/bin/display-toggle
+
+if ! grep -q 'export PATH="$HOME/bin:$PATH"' ~/.bashrc; then
+  echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc
+  echo 'Added ~/bin to PATH in ~/.bashrc'
+fi
+
+export PATH="$HOME/bin:$PATH"
+
+echo "✅ Installed ~/bin/display-toggle"
+echo "✨ Open up a new terminal and now you can now run: display-toggle ✨"

@@ -18,13 +18,13 @@ is_joined() {
 single() {
   echo "Single display: $SIDE_NAME $SIDE_SIZE@$SIDE_HZ"
   xrandr --output "$MAIN" --off \
-         --output "$SIDE" --mode $SIDE_SIZE --rate $SIDE_HZ --left-of "$MAIN" --auto
+         --output "$SIDE" --mode $SIDE_SIZE --rate $SIDE_HZ --right-of "$MAIN" --auto
 }
 
 join() {
   echo "Join displays: $MAIN_NAME $MAIN_SIZE@$MAIN_HZ + $SIDE_NAME $SIDE_SIZE@$SIDE_HZ"
   xrandr --output "$MAIN" --mode $MAIN_SIZE --rate $MAIN_HZ --primary --auto \
-         --output "$SIDE" --mode $SIDE_SIZE --rate $SIDE_HZ --left-of "$MAIN" --auto
+         --output "$SIDE" --mode $SIDE_SIZE --rate $SIDE_HZ --right-of "$MAIN" --auto
 }
 
 if is_joined; then
